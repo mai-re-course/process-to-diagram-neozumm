@@ -5,6 +5,8 @@ process-to-diagram-neozumm created by GitHub Classroom
 ## activity
 ![ACT](activity.png)
 
-
 ## sequence
 ![SEQ](sequence.png)
+
+## component
+![COM](component.png)
