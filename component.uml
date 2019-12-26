@@ -1,2 +1,18 @@
 @startuml
+frame "front"{
+    url --> [browser]
+    [browser] --> rendered_page
+}
+frame "dns"{
+    [browser] -down- dns_request
+    dns_request -->[dns_provider]
+    [dns_provider] - dns_response
+    dns_response --> [browser]
+}
+frame "backend"{
+    [browser] -right-> http_request
+    http_response -> [browser]
+    http_request -> [server]
+    [server] --> http_response
+}
 @enduml
