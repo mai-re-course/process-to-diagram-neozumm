@@ -1,0 +1,28 @@
+@startuml
+actor user
+actor browser
+actor server
+actor dns
+user -> browser : starts a query
+activate user
+    activate browser
+        browser --> user : suggerstions
+        user -> browser : enters query
+    deactivate user
+    browser -> browser : parse url
+    browser -> dns : dns lookup
+    browser -> server : arp request
+    browser -> server : open socket
+    activate server
+        server -> browser : tcp response
+        browser -> server : initiate tls handshake
+        server -> browser : finishes a handshake
+        browser -> server : http request
+        server -> browser : http respone
+    deactivate server
+    browser -> browser : parse html/css/js
+    browser -> browser : render the page
+    browser -> user : present the resulting page
+deactivate browser
+
+@enduml

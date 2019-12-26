@@ -1,0 +1,23 @@
+@startuml
+|user|
+start
+:start query;
+|browser|
+:generate suggestions;
+|user|
+:finish query;
+|browser|
+:parse query;
+:check dns cache;
+:send dns request;
+:send arp request;
+:establish tcp socket;
+:complete tls handshake;
+:send http request;
+:parse http response;
+:parse http/css/js;
+:render the page;
+|user|
+:view the page;
+stop
+@enduml
