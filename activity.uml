@@ -9,11 +9,25 @@ start
 |browser|
 :parse query;
 :check dns cache;
-:send dns request;
-:send arp request;
-:establish tcp socket;
-:complete tls handshake;
+|dns-server|
+:dns request;
+:lookup;
+:dns-response;
+|browser|
+:tcp-session-init;
+|server|
+:ack tcp session;
+|browser|
+:tcp session established;
+:start tls handshake;
+|server|
+:establish tls connection;
+|browser|
 :send http request;
+|server|
+:parse request;
+:send http response;
+|browser|
 :parse http response;
 :parse http/css/js;
 :render the page;

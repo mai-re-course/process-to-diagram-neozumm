@@ -11,7 +11,7 @@ activate user
     deactivate user
     browser -> browser : parse url
     browser -> dns : dns lookup
-    browser -> server : arp request
+    dns -> browser : dns response
     browser -> server : open socket
     activate server
         server -> browser : tcp response
