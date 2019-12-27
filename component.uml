@@ -1,8 +1,10 @@
 @startuml
+user --> adress_bar
 frame "front"{
+    adress_bar -> url
     url --> [browser]
-    [browser] --> rendered_page
 }
+    [browser] --> rendered_page
 frame "dns"{
     [browser] -down- dns_request
     dns_request -->[dns_provider]
